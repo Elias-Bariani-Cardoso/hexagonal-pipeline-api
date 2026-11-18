@@ -10,7 +10,7 @@ namespace Adapter.OutBound.SqlAdapter.Context
         {
         }
 
-        public DbSet<Xml> Xmls => Set<Xml>();
+        public virtual DbSet<Xml> Xmls => Set<Xml>();
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -5,6 +5,8 @@
         public static IServiceCollection AddSwaggerConfiguration(
             this IServiceCollection services)
         {
+            ArgumentNullException.ThrowIfNull(services);
+
             services.AddEndpointsApiExplorer();
 
             services.AddSwaggerGen(options =>
@@ -24,6 +26,8 @@
         public static WebApplication MapSwagger(
             this WebApplication app)
         {
+            ArgumentNullException.ThrowIfNull(app);
+
             if (!app.Environment.IsProduction())
             {
                 app.UseSwagger();
