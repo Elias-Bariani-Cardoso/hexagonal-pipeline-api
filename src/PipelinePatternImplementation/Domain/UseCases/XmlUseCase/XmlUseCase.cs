@@ -2,7 +2,6 @@
 using Domain.Ports.InBound;
 using Domain.Ports.OutBound;
 using Domain.ValueObjects;
-using Microsoft.Extensions.Logging;
 using PipelinePatternImplementation.Domain.ValueObjects;
 
 namespace Domain.UseCases.XmlUseCase
@@ -37,7 +36,9 @@ namespace Domain.UseCases.XmlUseCase
                 await _unitOfWork.BeginTransactionAsync(
                     cancellationToken);
 
+#pragma warning disable S1854
                 transactionStarted = true;
+#pragma warning restore S1854
 
                 var registros = await _xmlRepository.ReadTop10(
                     cancellationToken);
@@ -55,7 +56,7 @@ namespace Domain.UseCases.XmlUseCase
                 {
                     try
                     {
-                        // O cancelamento da requisição não deve impedir
+                        // o cancelamento da requisição não deve impedir
                         // a tentativa de rollback.
                         await _unitOfWork.RollbackAsync(
                             CancellationToken.None);

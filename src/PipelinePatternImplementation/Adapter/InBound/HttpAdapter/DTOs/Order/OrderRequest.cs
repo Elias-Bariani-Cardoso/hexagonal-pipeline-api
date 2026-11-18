@@ -7,7 +7,7 @@ namespace Adapter.InBound.HttpAdapter.DTOs.Order
         [Required(ErrorMessage = "O campo orderId é obrigatório.")]
         public string? orderId { get; set; }
         [Required(ErrorMessage = "O campo amount é obrigatório.")]
-        public double? amount { get; set; }
+        public decimal? amount { get; set; }
         [Required(ErrorMessage = "O campo status é obrigatório.")]
         public string? status { get; set; }
     }

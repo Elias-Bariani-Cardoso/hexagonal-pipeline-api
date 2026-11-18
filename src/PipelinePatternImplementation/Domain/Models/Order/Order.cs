@@ -6,12 +6,12 @@ namespace Domain.Models.Order
     {
         public string orderId { get; set; } = string.Empty;
 
-        public double amount { get; set; }
+        public decimal amount { get; set; }
 
         public OrderStatus status { get; private set; }
             = OrderStatus.Created;
 
-        public double getAmount()
+        public decimal getAmount()
         {
             return amount;
         }
